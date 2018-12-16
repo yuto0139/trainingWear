@@ -1,54 +1,52 @@
-%h1 トレーニングウェア比較
-%p ジムやスポーツシーンに活躍するトレーニングウェア、フィットネスウェアを紹介
-%h2
-  トレーニングウェア
-  %ul
-    %li= link_to '2XU ツータイムズユー', ''
-    %li= link_to 'adidas TECH FIT アディダステックフィット', ''
-    %li= link_to 'C3fit シースリーフィット', ''
-    %li= link_to 'CW-X シーダブリューエックス', ''
-    %li= link_to 'NIKE PRO ナイキプロ', ''
-    %li= link_to 'Reebok TAIKAN リーボックタイカン', ''
-    %li= link_to 'SKINS スキンズ', ''
-    %li= link_to 'VENEX ベネクス', ''
-    %li= link_to 'UNDER ARMOUR アンダーアーマー', ''
-    %li= link_to 'mizno BIO GEAR ミズノバイオギア', ''
-%h2
-  トレーニングウェアガイド
-  %ul
-    %li= link_to 'コンプレッションインナーとは？', ''
-    %li= link_to '高機能インナーとは？', ''
-    %li= link_to 'リカバリーウェアとは？', ''
-    %li= link_to 'トレーニングウェアの選び方', ''
-    %li= link_to 'フィットネスウェアの選び方', ''
-%h2
-  トレーニングウェア比較
-  %ul
-    %li= link_to '2XU ツータイムズユー', ''
-    %li= link_to 'adidas TECH FIT アディダステックフィット', ''
-    %li= link_to 'C3fit シースリーフィット', ''
-    %li= link_to 'CW-X シーダブリューエックス', ''
-    %li= link_to 'NIKE PRO ナイキプロ', ''
-    %li= link_to 'Reebok TAIKAN リーボックタイカン', ''
-    %li= link_to 'SKINS スキンズ', ''
-    %li= link_to 'VENEX ベネクス', ''
-    %li= link_to 'UNDER ARMOUR アンダーアーマー', ''
-    %li= link_to 'mizno BIO GEAR ミズノバイオギア', ''
-%dl
-  %dt コンプレッションウェアとは？
-  %dd 高機能インナーとは、着用するだけで保温・冷感・筋肉や体幹のサポート・姿勢矯正...
-  %span= link_to '>>続きを見る', ''
-%dl
-  %dt 高機能インナーとは？
-  %dd 高機能インナーとは、着用するだけで保温・冷感・筋肉や体幹のサポート・姿勢矯正...
-  %span= link_to '>>続きを見る', ''
-%dl
-  %dt トレーニングウェアの選び方
-  %dd トレーニングをする際、ウェアの選び方によってトレーニング効果も変わってきます...
-  %span= link_to '>>続きを見る', ''
-%dl
-  %dt フィットネスウェアの選び方
-  %dd ジムでの運動や筋トレ、ジョギングなど、フィットネスをする際に着るウェアによりその効果が...
-  %span= link_to '>>続きを見る', ''
-%footer
-  %p Copyright(C) 2014. Venex Co.Ltd All rights reserved.
+= render 'data/arrays'
+= render 'partials/header'
+
+.container
+  .container__main
+    .imageChoiceWear
+      = link_to image_tag "top-bn01.jpg", alt: "効果を出すためのトレーニングウェアの選び方", size: ""
+    .compareWears
+      .compareWears__title
+        %h2 トレーニングウェア比較
+      .compareWears__detail
+        .brandCollection
+          - @brands.each do | brand |
+            .brandCollection__brands
+              = link_to '' do
+                = image_tag "img_main_#{brand[2]}_s.gif", alt: brand[0], size: ""
+                %span.english= brand[0]
+                %span.japanese= brand[1]
+        .articles
+          - @tutorials.each do | tutorial |
+            %dl.article
+              %dt= tutorial[0]
+              %dd
+                = tutorial[1]
+                = link_to '続きを見る', tutorial[2]
+    .imageRecoveryWear
+      = image_tag 'img_banner.jpg', size: ''
+  .container__sub
+    .imageAdvertisement
+      = image_tag 'left-bn.gif', size: ''
+    .brandList
+      .brandList__title
+        %h3= image_tag 'left-wear.gif', alt: 'トレーニングウェア', size: ''
+      .brandList__brands
+        %ul
+          - @brands.each do | brand |
+            %li
+              = link_to '' do
+                %span.icon
+                  = image_tag "left-nemu-#{brand[2]}.gif", alt: brand[0], size: ""
+                %span.name
+                  %span.english= brand[0]
+                  %span.japanese= brand[1]
+    .wearGuide
+      .wearGuide__title
+        %h3= image_tag 'left-wear-guide.gif', alt: 'トレーニングウェアガイド', size: ''
+      .wearGuide__content
+        %ul
+          - @guides.each do | guide |
+            %li= link_to guide
+
+= render 'partials/footer'
