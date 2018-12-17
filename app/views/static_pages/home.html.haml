@@ -1,5 +1,5 @@
-= render 'data/arrays'
-= render 'partials/header'
+= render "data/arrays"
+= render "partials/header"
 
 .container
   .container__main
@@ -12,30 +12,30 @@
         .brandCollection
           - @brands.each do | brand |
             .brandCollection__brands
-              = link_to '' do
+              = link_to "#" do
                 = image_tag "img_main_#{brand[2]}_s.gif", alt: brand[0], size: ""
-                %span.english= brand[0]
-                %span.japanese= brand[1]
+                %span= brand[0]
+                %span= brand[1]
         .articles
           - @tutorials.each do | tutorial |
             %dl.article
               %dt= tutorial[0]
               %dd
                 = tutorial[1]
-                = link_to '続きを見る', tutorial[2]
+                = link_to "続きを見る", tutorial[2]
     .imageRecoveryWear
-      = image_tag 'img_banner.jpg', size: ''
+      = image_tag "img_banner.jpg", size: ""
   .container__sub
     .imageAdvertisement
-      = image_tag 'left-bn.gif', size: ''
+      = image_tag "left-bn.gif", size: ""
     .brandList
       .brandList__title
-        %h3= image_tag 'left-wear.gif', alt: 'トレーニングウェア', size: ''
+        %h3= image_tag "left-wear.gif", alt: "トレーニングウェア", size: ""
       .brandList__brands
         %ul
           - @brands.each do | brand |
             %li
-              = link_to '' do
+              = link_to "" do
                 %span.icon
                   = image_tag "left-nemu-#{brand[2]}.gif", alt: brand[0], size: ""
                 %span.name
@@ -43,10 +43,10 @@
                   %span.japanese= brand[1]
     .wearGuide
       .wearGuide__title
-        %h3= image_tag 'left-wear-guide.gif', alt: 'トレーニングウェアガイド', size: ''
+        %h3= image_tag "left-wear-guide.gif", alt: "トレーニングウェアガイド", size: ""
       .wearGuide__content
         %ul
           - @guides.each do | guide |
             %li= link_to guide
 
-= render 'partials/footer'
+= render "partials/footer"
